@@ -9,16 +9,17 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var matches = [NSManagedObject]()
+    var selectedMatch: Match?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Список матчей"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +46,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")!
         
         let person = matches[indexPath.row]
         cell.textLabel!.text = (person.value(forKey: "name1") as! String) + (person.value(forKey: "name2") as! String)//name of match
@@ -108,15 +109,37 @@ class ViewController: UIViewController, UITableViewDataSource {
         let managedObjectContext = delegate.persistentContainer.viewContext
      
         let entity =  NSEntityDescription.entity(forEntityName: "Match", in: managedObjectContext)
-        let person = NSManagedObject(entity: entity!, insertInto: managedObjectContext)
+        let match = NSManagedObject(entity: entity!, insertInto: managedObjectContext)
      
-        person.setValue(name1, forKey: "name1")
-        person.setValue(name2, forKey: "name2")
+        match.setValue(name1, forKey: "name1")
+        match.setValue(name2, forKey: "name2")
      
         //var error: NSError?
         //if !managedObjectContext.save(&error) { print("Could not save \(error), \(error?.userInfo)") }
         
-        matches.append(person)
+        matches.append(match)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if let destination = segue.destination as? DetailVC{
+            //destination.selectedMatch = matches[(tableView.indexPathForSelectedRow?.row)!] as? Match
+        //}
+        if segue.identifier == "showDetailVC" {
+            let detailVC: DetailVC = segue.destination as! DetailVC
+            detailVC.selectedMatch = selectedMatch
+            //detailVC.delegate = self
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print(matches[indexPath.row].value(forKey: "name1")!)
+        selectedMatch = matches[indexPath.row] as! Match
+        performSegue(withIdentifier: "showDetailVC", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    }
+    
 }
 
