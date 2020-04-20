@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         title = "Список матчей"
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +37,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             print("Failed")
         }
+        
+        tableView.reloadData()
     }
-
+    
     func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
         return matches.count
@@ -55,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     @IBAction func addMatch(_ sender: Any) {
-        let alert = UIAlertController(title: "Новый матч",
+        /*let alert = UIAlertController(title: "Новый матч",
              message: "Добавьте новый матч",
              preferredStyle: .alert)
         
@@ -101,7 +102,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         present(alert,
              animated: true,
-             completion: nil)
+             completion: nil)*/
+        performSegue(withIdentifier: "showAddVC", sender: self)
     }
     
     func saveMatch(name1: String, name2: String) {

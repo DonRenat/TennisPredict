@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B45C027244D2486009BA520 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B45C026244D2486009BA520 /* DetailVC.swift */; };
+		1B45C029244D36EA009BA520 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B45C028244D36EA009BA520 /* AddVC.swift */; };
 		1B8EB898244CE3EC00503D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EB897244CE3EC00503D30 /* AppDelegate.swift */; };
 		1B8EB89A244CE3EC00503D30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EB899244CE3EC00503D30 /* SceneDelegate.swift */; };
 		1B8EB89C244CE3EC00503D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EB89B244CE3EC00503D30 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1B45C026244D2486009BA520 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		1B45C028244D36EA009BA520 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		1B8EB894244CE3EC00503D30 /* TennisPredict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisPredict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EB897244CE3EC00503D30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B8EB899244CE3EC00503D30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				1B8EB8A8244CE3F100503D30 /* Info.plist */,
 				1B8EB8A0244CE3EC00503D30 /* TennisPredict.xcdatamodeld */,
 				1B45C026244D2486009BA520 /* DetailVC.swift */,
+				1B45C028244D36EA009BA520 /* AddVC.swift */,
 			);
 			path = TennisPredict;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B45C029244D36EA009BA520 /* AddVC.swift in Sources */,
 				1B45C027244D2486009BA520 /* DetailVC.swift in Sources */,
 				1B8EB89C244CE3EC00503D30 /* ViewController.swift in Sources */,
 				1B8EB898244CE3EC00503D30 /* AppDelegate.swift in Sources */,

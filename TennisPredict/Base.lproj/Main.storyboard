@@ -57,11 +57,59 @@
                     <connections>
                         <outlet property="tableView" destination="DHJ-kY-NLj" id="btj-Ql-GRx"/>
                         <segue destination="04Q-6C-iJ0" kind="show" identifier="showDetailVC" id="Nlb-Th-NUW"/>
+                        <segue destination="lJP-mH-hpZ" kind="show" identifier="showAddVC" id="PCH-xy-qbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--AddVC-->
+        <scene sceneID="WSp-A8-x5w">
+            <objects>
+                <viewController id="lJP-mH-hpZ" customClass="AddVC" customModule="TennisPredict" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DY7-9I-SAU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S31-tR-2Ua">
+                                <rect key="frame" x="20" y="360" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itQ-kY-4TU">
+                                <rect key="frame" x="20" y="402" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gha-Fl-I3r">
+                                <rect key="frame" x="67" y="520" width="280" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Добавить матч">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewMatch:" destination="lJP-mH-hpZ" eventType="touchUpInside" id="3BZ-Ia-hsg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HwH-QO-Sp6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KOA-ZK-ADk"/>
+                    <connections>
+                        <outlet property="addButton" destination="gha-Fl-I3r" id="nPg-yQ-811"/>
+                        <outlet property="textFieldName1" destination="S31-tR-2Ua" id="RPJ-WV-ZmM"/>
+                        <outlet property="textFieldName2" destination="itQ-kY-4TU" id="DoR-FQ-NNC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OTd-xB-csE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886.9565217391305" y="-190.17857142857142"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="ERU-BW-8P4">
@@ -89,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDY-yj-bGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1886.9565217391305" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1887" y="508"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jyn-cZ-Ygu">
