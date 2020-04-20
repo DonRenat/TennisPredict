@@ -115,6 +115,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      
         match.setValue(name1, forKey: "name1")
         match.setValue(name2, forKey: "name2")
+        
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
      
         //var error: NSError?
         //if !managedObjectContext.save(&error) { print("Could not save \(error), \(error?.userInfo)") }

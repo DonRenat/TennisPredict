@@ -32,8 +32,8 @@ class AddVC: UIViewController, UITextFieldDelegate {
         let vc = ViewController()
         vc.saveMatch(name1: n1, name2: n2)
         
-        //navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+        //self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
