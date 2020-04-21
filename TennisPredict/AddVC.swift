@@ -8,12 +8,15 @@
 
 import UIKit
 import CoreData
+import SkyFloatingLabelTextField
 
 class AddVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var textFieldName1: UITextField!
-    @IBOutlet weak var textFieldName2: UITextField!
+    @IBOutlet weak var textFieldName1: SkyFloatingLabelTextField!
+    @IBOutlet weak var textFieldName2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfRating1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfRating2: SkyFloatingLabelTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

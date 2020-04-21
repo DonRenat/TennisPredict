@@ -17,8 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Список матчей"
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

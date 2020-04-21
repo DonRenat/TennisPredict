@@ -16,6 +16,7 @@
 		1B8EB8A2244CE3EC00503D30 /* TennisPredict.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EB8A0244CE3EC00503D30 /* TennisPredict.xcdatamodeld */; };
 		1B8EB8A4244CE3F100503D30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EB8A3244CE3F100503D30 /* Assets.xcassets */; };
 		1B8EB8A7244CE3F100503D30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EB8A5244CE3F100503D30 /* LaunchScreen.storyboard */; };
+		68CF7DEE8DD30299A683F915 /* Pods_TennisPredict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4931D9509C52CF0D7DA28D5 /* Pods_TennisPredict.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,9 @@
 		1B8EB8A3244CE3F100503D30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B8EB8A6244CE3F100503D30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B8EB8A8244CE3F100503D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366AE65D960B7D0940B626E5 /* Pods-TennisPredict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisPredict.debug.xcconfig"; path = "Target Support Files/Pods-TennisPredict/Pods-TennisPredict.debug.xcconfig"; sourceTree = "<group>"; };
+		5E68EF72065A4EA9D39DB5F1 /* Pods-TennisPredict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisPredict.release.xcconfig"; path = "Target Support Files/Pods-TennisPredict/Pods-TennisPredict.release.xcconfig"; sourceTree = "<group>"; };
+		C4931D9509C52CF0D7DA28D5 /* Pods_TennisPredict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisPredict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CF7DEE8DD30299A683F915 /* Pods_TennisPredict.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +53,8 @@
 			children = (
 				1B8EB896244CE3EC00503D30 /* TennisPredict */,
 				1B8EB895244CE3EC00503D30 /* Products */,
+				7F46704A5BE9911427291CF7 /* Pods */,
+				8FE06E4CDBE0C279C73BB145 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +83,24 @@
 			path = TennisPredict;
 			sourceTree = "<group>";
 		};
+		7F46704A5BE9911427291CF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				366AE65D960B7D0940B626E5 /* Pods-TennisPredict.debug.xcconfig */,
+				5E68EF72065A4EA9D39DB5F1 /* Pods-TennisPredict.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8FE06E4CDBE0C279C73BB145 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4931D9509C52CF0D7DA28D5 /* Pods_TennisPredict.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B8EB8AB244CE3F100503D30 /* Build configuration list for PBXNativeTarget "TennisPredict" */;
 			buildPhases = (
+				8A6BD23BB869FBBC8F9F9D34 /* [CP] Check Pods Manifest.lock */,
 				1B8EB890244CE3EC00503D30 /* Sources */,
 				1B8EB891244CE3EC00503D30 /* Frameworks */,
 				1B8EB892244CE3EC00503D30 /* Resources */,
+				D9ED5A6B4432F12288F919BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,6 +168,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A6BD23BB869FBBC8F9F9D34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TennisPredict-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9ED5A6B4432F12288F919BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TennisPredict/Pods-TennisPredict-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TennisPredict/Pods-TennisPredict-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TennisPredict/Pods-TennisPredict-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B8EB890244CE3EC00503D30 /* Sources */ = {
@@ -294,6 +363,7 @@
 		};
 		1B8EB8AC244CE3F100503D30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 366AE65D960B7D0940B626E5 /* Pods-TennisPredict.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +382,7 @@
 		};
 		1B8EB8AD244CE3F100503D30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E68EF72065A4EA9D39DB5F1 /* Pods-TennisPredict.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
