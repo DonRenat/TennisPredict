@@ -803,8 +803,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Геймы, выигранные на приеме"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Геймы, выигранные на приеме"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Геймы, выигранные на П"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Геймы, выигранные на П"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" name="Yellow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" name="Yellow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" name="Yellow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" name="Light yellow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" name="Light yellow"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULm-D4-d4p" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="67" y="685" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" returnKeyType="done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Дата проведения матча"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Дата"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                         <color key="value" name="Yellow"/>
                                     </userDefinedRuntimeAttribute>
@@ -834,6 +862,7 @@
                         <outlet property="addButton" destination="gha-Fl-I3r" id="nPg-yQ-811"/>
                         <outlet property="textFieldName1" destination="S31-tR-2Ua" id="RPJ-WV-ZmM"/>
                         <outlet property="textFieldName2" destination="itQ-kY-4TU" id="DoR-FQ-NNC"/>
+                        <outlet property="tfDate" destination="ULm-D4-d4p" id="s49-Qt-VKS"/>
                         <outlet property="tfRating1" destination="9dK-fu-d4q" id="IB0-qX-nAu"/>
                         <outlet property="tfRating2" destination="WNn-Hm-YrE" id="dg1-Om-BT4"/>
                     </connections>

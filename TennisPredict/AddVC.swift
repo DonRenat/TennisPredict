@@ -17,6 +17,9 @@ class AddVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldName2: SkyFloatingLabelTextField!
     @IBOutlet weak var tfRating1: SkyFloatingLabelTextField!
     @IBOutlet weak var tfRating2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfDate: SkyFloatingLabelTextField!
+    
+    private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +30,26 @@ class AddVC: UIViewController, UITextFieldDelegate {
         textFieldName1.delegate = self
         textFieldName2.delegate = self
         
-        tfRating1.delegate = self
-        tfRating2.delegate = self
-        tfRating1.addDoneButtonToKeyboard(myAction:  #selector(self.tfRating1.resignFirstResponder))
-        tfRating2.addDoneButtonToKeyboard(myAction:  #selector(self.tfRating2.resignFirstResponder))
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(AddVC.dateChanged(datePicker:)), for: .valueChanged)
         
-        
+        tfDate.inputView = datePicker
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(AddVC.dismissPicker))
+
+        tfDate.inputAccessoryView = toolBar
+        tfRating1.inputAccessoryView = toolBar
+        tfRating2.inputAccessoryView = toolBar
+    }
+    
+    @objc func dismissPicker() {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        tfDate.text = dateFormatter.string(from: datePicker.date)
     }
 
     @IBAction func addNewMatch(_ sender: Any) {
@@ -55,22 +72,24 @@ class AddVC: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension SkyFloatingLabelTextField{
+extension UIToolbar {
 
- func addDoneButtonToKeyboard(myAction:Selector?){
-    let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
-    doneToolbar.barStyle = UIBarStyle.default
+func ToolbarPiker(mySelect : Selector) -> UIToolbar {
 
-    let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-    let done: UIBarButtonItem = UIBarButtonItem(title: "Готово", style: UIBarButtonItem.Style.done, target: self, action: myAction)
+    let toolBar = UIToolbar()
 
-    var items = [UIBarButtonItem]()
-    items.append(flexSpace)
-    items.append(done)
+    toolBar.barStyle = UIBarStyle.default
+    toolBar.isTranslucent = true
+    toolBar.tintColor = UIColor.init(named: "Yellow")
+    toolBar.sizeToFit()
 
-    doneToolbar.items = items
-    doneToolbar.sizeToFit()
+    let doneButton = UIBarButtonItem(title: "Готово", style: UIBarButtonItem.Style.done, target: self, action: mySelect)
+    let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
 
-    self.inputAccessoryView = doneToolbar
- }
+    toolBar.setItems([ spaceButton, doneButton], animated: false)
+    toolBar.isUserInteractionEnabled = true
+
+    return toolBar
+}
+
 }

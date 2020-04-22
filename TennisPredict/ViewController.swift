@@ -83,24 +83,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if let destination = segue.destination as? DetailVC{
-            //destination.selectedMatch = matches[(tableView.indexPathForSelectedRow?.row)!] as? Match
-        //}
         if segue.identifier == "showDetailVC" {
             let detailVC: DetailVC = segue.destination as! DetailVC
             detailVC.selectedMatch = selectedMatch
-            //detailVC.delegate = self
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(matches[indexPath.row].value(forKey: "name1")!)
+        //print(matches[indexPath.row].value(forKey: "name1")!)
         selectedMatch = matches[indexPath.row] as! Match
         performSegue(withIdentifier: "showDetailVC", sender: self)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .default, title: "Удалить") { (action, indexPath) in
+            self.tableView.dataSource?.tableView!(self.tableView, commit: .delete, forRowAt: indexPath)
+            return
+        }
+        deleteButton.backgroundColor = UIColor.init(named: "Dark background")
+        return [deleteButton]
     }
     
 }
