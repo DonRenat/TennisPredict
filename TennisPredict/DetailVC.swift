@@ -18,7 +18,7 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testLabel.text = (selectedMatch!.value(forKey: "name1") as! String) + (selectedMatch!.value(forKey: "name2") as! String)
+        testLabel.text = (selectedMatch!.value(forKey: "name1") as! String) + String(describing: selectedMatch!.value(forKey: "rating1")!) + (selectedMatch!.value(forKey: "name2") as! String) + String(describing: selectedMatch!.value(forKey: "rating2")!)
     }
 
 }

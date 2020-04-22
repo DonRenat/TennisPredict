@@ -31,9 +31,12 @@ class AddVC: UIViewController, UITextFieldDelegate {
     @IBAction func addNewMatch(_ sender: Any) {
         let n1 = textFieldName1.text!
         let n2 = textFieldName2.text!
+        let r1 = Int(tfRating1.text!)!
+        let r2 = Int(tfRating2.text!)!
+        
 
         let vc = ViewController()
-        vc.saveMatch(name1: n1, name2: n2)
+        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2)
         
         navigationController?.popViewController(animated: true)
         //self.dismiss(animated: true, completion: nil)
