@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Match" representedClassName="Match" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name1" attributeType="String"/>
         <attribute name="name2" attributeType="String"/>
         <attribute name="rating1" attributeType="Integer 16" minValueString="1" maxValueString="200" usesScalarValueType="YES"/>
         <attribute name="rating2" attributeType="Integer 16" minValueString="1" maxValueString="200" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Match" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Match" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

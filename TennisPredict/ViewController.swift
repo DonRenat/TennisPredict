@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         performSegue(withIdentifier: "showAddVC", sender: self)
     }
     
-    func saveMatch(name1: String, name2: String, rating1: Int, rating2: Int) {
+    func saveMatch(name1: String, name2: String, rating1: Int, rating2: Int, date: Date) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = delegate.persistentContainer.viewContext
      
@@ -69,6 +69,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         match.setValue(name2, forKey: "name2")
         match.setValue(rating1, forKey: "rating1")
         match.setValue(rating2, forKey: "rating2")
+        match.setValue(date, forKey: "date")
         
         do {
             try managedObjectContext.save()

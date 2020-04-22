@@ -58,9 +58,12 @@ class AddVC: UIViewController, UITextFieldDelegate {
         let r1 = Int(tfRating1.text!)!
         let r2 = Int(tfRating2.text!)!
         
+        //let dateFormatter = DateFormatter()
+        //let d = dateFormatter.date(from: datePicker!.date)
+        
 
         let vc = ViewController()
-        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2)
+        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2, date: datePicker!.date)
         
         navigationController?.popViewController(animated: true)
         //self.dismiss(animated: true, completion: nil)
@@ -90,6 +93,5 @@ func ToolbarPiker(mySelect : Selector) -> UIToolbar {
     toolBar.isUserInteractionEnabled = true
 
     return toolBar
-}
-
+    }
 }
