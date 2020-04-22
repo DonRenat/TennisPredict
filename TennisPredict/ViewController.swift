@@ -49,59 +49,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")!
         
         let person = matches[indexPath.row]
-        cell.textLabel!.text = (person.value(forKey: "name1") as! String) + (person.value(forKey: "name2") as! String)//name of match
+        cell.textLabel!.text = (person.value(forKey: "name1") as! String) + " vs " + (person.value(forKey: "name2") as! String)//name of match
         
         return cell
     }
 
     @IBAction func addMatch(_ sender: Any) {
-        /*let alert = UIAlertController(title: "Новый матч",
-             message: "Добавьте новый матч",
-             preferredStyle: .alert)
-        
-         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { (action: UIAlertAction!) -> Void in
-            let textFieldName1 = alert.textFields![0]
-            let textFieldName2 = alert.textFields![1]
-            self.saveMatch(name1: textFieldName1.text!, name2: textFieldName2.text!)
-            self.tableView.reloadData()
-         }
-        
-        saveAction.isEnabled = false
-        
-         let cancelAction = UIAlertAction(title: "Отмена",
-                                          style: .default) { (action: UIAlertAction!) -> Void in
-         }
-        
-        alert.addTextField {
-           (textField: UITextField!) -> Void in
-         }
-        alert.addTextField {
-          (textField: UITextField!) -> Void in
-        }
-        
-        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object:alert.textFields?[0],
-                                                     queue: OperationQueue.main) { (notification) -> Void in
-
-                let textFieldName1 = alert.textFields![0]
-                let textFieldName2 = alert.textFields![1]
-                saveAction.isEnabled = !textFieldName1.text!.isEmpty &&  !textFieldName2.text!.isEmpty
-        }
-        
-        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object:alert.textFields?[1],
-                                                      queue: OperationQueue.main) { (notification) -> Void in
-
-                let textFieldName1 = alert.textFields![0]
-                let textFieldName2 = alert.textFields![1]
-                saveAction.isEnabled = !textFieldName1.text!.isEmpty &&  !textFieldName2.text!.isEmpty
-        }
-        
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-         
-        
-        present(alert,
-             animated: true,
-             completion: nil)*/
         performSegue(withIdentifier: "showAddVC", sender: self)
     }
     

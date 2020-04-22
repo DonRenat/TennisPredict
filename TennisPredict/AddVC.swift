@@ -26,6 +26,13 @@ class AddVC: UIViewController, UITextFieldDelegate {
         
         textFieldName1.delegate = self
         textFieldName2.delegate = self
+        
+        tfRating1.delegate = self
+        tfRating2.delegate = self
+        tfRating1.addDoneButtonToKeyboard(myAction:  #selector(self.tfRating1.resignFirstResponder))
+        tfRating2.addDoneButtonToKeyboard(myAction:  #selector(self.tfRating2.resignFirstResponder))
+        
+        
     }
 
     @IBAction func addNewMatch(_ sender: Any) {
@@ -46,4 +53,24 @@ class AddVC: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+}
+
+extension SkyFloatingLabelTextField{
+
+ func addDoneButtonToKeyboard(myAction:Selector?){
+    let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+    doneToolbar.barStyle = UIBarStyle.default
+
+    let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+    let done: UIBarButtonItem = UIBarButtonItem(title: "Готово", style: UIBarButtonItem.Style.done, target: self, action: myAction)
+
+    var items = [UIBarButtonItem]()
+    items.append(flexSpace)
+    items.append(done)
+
+    doneToolbar.items = items
+    doneToolbar.sizeToFit()
+
+    self.inputAccessoryView = doneToolbar
+ }
 }
