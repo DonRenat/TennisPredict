@@ -22,7 +22,7 @@ class DetailVC: UIViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let dateString = dateFormatter.string(from: selectedMatch!.value(forKey: "date")! as! Date)
         
-        testLabel.text = (selectedMatch!.value(forKey: "name1") as! String) + String(describing: selectedMatch!.value(forKey: "rating1")!) + (selectedMatch!.value(forKey: "name2") as! String) + String(describing: selectedMatch!.value(forKey: "rating2")!) + dateString
+        testLabel.text = (selectedMatch!.value(forKey: "name1") as! String) + String(describing: selectedMatch!.value(forKey: "rating1")!) + (selectedMatch!.value(forKey: "name2") as! String) + String(describing: selectedMatch!.value(forKey: "rating2")!) + dateString + (selectedMatch!.value(forKey: "winner") as! String) + "--" + String(describing: selectedMatch!.value(forKey: "ace1")!) + "--" + String(describing: selectedMatch!.value(forKey: "ace2")!) + "--" + String(describing: selectedMatch!.value(forKey: "df1")!) + "--" + String(describing: selectedMatch!.value(forKey: "df2")!) + "--" + String(describing: selectedMatch!.value(forKey: "fault1")!) + "--" + String(describing: selectedMatch!.value(forKey: "fault2")!)
     }
 
 }

@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Match" representedClassName="Match" syncable="YES" codeGenerationType="class">
+        <attribute name="ace1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="ace2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="active1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="active2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="break1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="break2" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="df1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="df2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="fault1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="fault2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="gamep1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="gamep2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="gamesp1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="gamesp2" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="name1" attributeType="String"/>
         <attribute name="name2" attributeType="String"/>
         <attribute name="rating1" attributeType="Integer 16" minValueString="1" maxValueString="200" usesScalarValueType="YES"/>
         <attribute name="rating2" attributeType="Integer 16" minValueString="1" maxValueString="200" usesScalarValueType="YES"/>
+        <attribute name="winner" attributeType="String"/>
+        <attribute name="wpp1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wpp2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wpps1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wpps2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wwp1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wwp2" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wwps1" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="wwps2" attributeType="Integer 16" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Match" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Match" positionX="-63" positionY="-18" width="128" height="463"/>
     </elements>
 </model>

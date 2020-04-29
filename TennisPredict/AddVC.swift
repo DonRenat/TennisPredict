@@ -18,6 +18,15 @@ class AddVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tfRating1: SkyFloatingLabelTextField!
     @IBOutlet weak var tfRating2: SkyFloatingLabelTextField!
     @IBOutlet weak var tfDate: SkyFloatingLabelTextField!
+    @IBOutlet weak var winnerSC: UISegmentedControl!
+    @IBOutlet weak var tfAce1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfAce2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfDF1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfDF2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWPP1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWPP2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWWP1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWWP2: SkyFloatingLabelTextField!
     
     private var datePicker: UIDatePicker?
     
@@ -40,6 +49,14 @@ class AddVC: UIViewController, UITextFieldDelegate {
         tfDate.inputAccessoryView = toolBar
         tfRating1.inputAccessoryView = toolBar
         tfRating2.inputAccessoryView = toolBar
+        tfAce1.inputAccessoryView = toolBar
+        tfAce2.inputAccessoryView = toolBar
+        tfDF1.inputAccessoryView = toolBar
+        tfDF2.inputAccessoryView = toolBar
+        tfWPP1.inputAccessoryView = toolBar
+        tfWPP2.inputAccessoryView = toolBar
+        tfWWP1.inputAccessoryView = toolBar
+        tfWWP2.inputAccessoryView = toolBar
     }
     
     @objc func dismissPicker() {
@@ -58,12 +75,25 @@ class AddVC: UIViewController, UITextFieldDelegate {
         let r1 = Int(tfRating1.text!)!
         let r2 = Int(tfRating2.text!)!
         
+        //var winner = textFieldName1.text!
+        var winner: String
+        if winnerSC.selectedSegmentIndex == 0 {winner = textFieldName1.text!} else {winner = textFieldName2.text!}
+        
+        let a1 = Int(tfAce1.text!)!
+        let a2 = Int(tfAce2.text!)!
+        let df1 = Int(tfDF1.text!)!
+        let df2 = Int(tfDF2.text!)!
+        let wpp1 = Int(tfWPP1.text!)!
+        let wpp2 = Int(tfWPP2.text!)!
+        let wwp1 = Int(tfWWP1.text!)!
+        let wwp2 = Int(tfWWP2.text!)!
+        
         //let dateFormatter = DateFormatter()
         //let d = dateFormatter.date(from: datePicker!.date)
         
 
         let vc = ViewController()
-        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2, date: datePicker!.date)
+        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2, date: datePicker!.date, winner: winner, ace1: a1, ace2: a2, df1: df1, df2: df2, wpp1: wpp1, wpp2: wpp2, wwp1: wwp1, wwp2: wwp2, wpps1: 1, wpps2: 2, wwps1: 3, wwps2: 4, break1: 5, break2: 6, active1: 7, active2: 8, fault1: 9, fault2: 10, gamesp1: 11, gamesp2: 12, gamep1: 13, gamep2: 14)
         
         navigationController?.popViewController(animated: true)
         //self.dismiss(animated: true, completion: nil)

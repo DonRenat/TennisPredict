@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         performSegue(withIdentifier: "showAddVC", sender: self)
     }
     
-    func saveMatch(name1: String, name2: String, rating1: Int, rating2: Int, date: Date) {
+    func saveMatch(name1: String, name2: String, rating1: Int, rating2: Int, date: Date, winner: String, ace1: Int, ace2: Int, df1: Int, df2: Int, wpp1: Int, wpp2: Int, wwp1: Int, wwp2: Int, wpps1: Int, wpps2: Int, wwps1: Int, wwps2: Int, break1: Int, break2: Int, active1: Int, active2: Int, fault1: Int, fault2: Int, gamesp1: Int, gamesp2: Int, gamep1: Int, gamep2: Int) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = delegate.persistentContainer.viewContext
      
@@ -70,6 +70,42 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         match.setValue(rating1, forKey: "rating1")
         match.setValue(rating2, forKey: "rating2")
         match.setValue(date, forKey: "date")
+        //new
+        match.setValue(winner, forKey: "winner")
+        
+        match.setValue(ace1, forKey: "ace1")
+        match.setValue(ace2, forKey: "ace2")
+        
+        match.setValue(df1, forKey: "df1")
+        match.setValue(df2, forKey: "df2")
+        
+        match.setValue(wpp1, forKey: "wpp1")
+        match.setValue(wpp2, forKey: "wpp2")
+        
+        match.setValue(wwp1, forKey: "wwp1")
+        match.setValue(wwp2, forKey: "wwp2")
+        
+        match.setValue(wpps1, forKey: "wpps1")
+        match.setValue(wpps2, forKey: "wpps2")
+        
+        match.setValue(wwps1, forKey: "wwps1")
+        match.setValue(wwps2, forKey: "wwps2")
+        
+        match.setValue(break1, forKey: "break1")
+        match.setValue(break2, forKey: "break2")
+        
+        match.setValue(active1, forKey: "active1")
+        match.setValue(active2, forKey: "active2")
+        
+        match.setValue(fault1, forKey: "fault1")
+        match.setValue(fault2, forKey: "fault2")
+        
+        match.setValue(gamesp1, forKey: "gamesp1")
+        match.setValue(gamesp2, forKey: "gamesp2")
+        
+        match.setValue(gamep1, forKey: "gamep1")
+        match.setValue(gamep2, forKey: "gamep2")
+        
         
         do {
             try managedObjectContext.save()

@@ -862,9 +862,18 @@
                         <outlet property="addButton" destination="gha-Fl-I3r" id="nPg-yQ-811"/>
                         <outlet property="textFieldName1" destination="S31-tR-2Ua" id="RPJ-WV-ZmM"/>
                         <outlet property="textFieldName2" destination="itQ-kY-4TU" id="DoR-FQ-NNC"/>
+                        <outlet property="tfAce1" destination="Hbn-zr-Lal" id="V1P-Zl-WVa"/>
+                        <outlet property="tfAce2" destination="b1Q-G4-kKj" id="8YM-RN-Vba"/>
+                        <outlet property="tfDF1" destination="Fhj-Y8-cef" id="g35-KU-BME"/>
+                        <outlet property="tfDF2" destination="50U-JJ-3UL" id="G07-Gd-u1l"/>
                         <outlet property="tfDate" destination="ULm-D4-d4p" id="s49-Qt-VKS"/>
                         <outlet property="tfRating1" destination="9dK-fu-d4q" id="IB0-qX-nAu"/>
                         <outlet property="tfRating2" destination="WNn-Hm-YrE" id="dg1-Om-BT4"/>
+                        <outlet property="tfWPP1" destination="3Ob-X5-R3x" id="y6c-DJ-ZEn"/>
+                        <outlet property="tfWPP2" destination="EdB-EZ-AiD" id="1wK-ke-hUw"/>
+                        <outlet property="tfWWP1" destination="GmQ-IY-gdV" id="gwN-oC-eq6"/>
+                        <outlet property="tfWWP2" destination="fOf-TK-yZF" id="xhN-0J-9Gl"/>
+                        <outlet property="winnerSC" destination="x5N-Qs-ph7" id="tjg-ar-NIK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTd-xB-csE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
