@@ -27,6 +27,20 @@ class AddVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tfWPP2: SkyFloatingLabelTextField!
     @IBOutlet weak var tfWWP1: SkyFloatingLabelTextField!
     @IBOutlet weak var tfWWP2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWPPS1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWPPS2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWWPS1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfWWPS2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfBreak1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfBreak2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfActive1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfActive2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfFault1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfFault2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfGamesp1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfGamesp2: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfGamep1: SkyFloatingLabelTextField!
+    @IBOutlet weak var tfGamep2: SkyFloatingLabelTextField!
     
     private var datePicker: UIDatePicker?
     
@@ -57,6 +71,20 @@ class AddVC: UIViewController, UITextFieldDelegate {
         tfWPP2.inputAccessoryView = toolBar
         tfWWP1.inputAccessoryView = toolBar
         tfWWP2.inputAccessoryView = toolBar
+        tfWPPS1.inputAccessoryView = toolBar
+        tfWPPS2.inputAccessoryView = toolBar
+        tfWWPS1.inputAccessoryView = toolBar
+        tfWWPS2.inputAccessoryView = toolBar
+        tfBreak1.inputAccessoryView = toolBar
+        tfBreak2.inputAccessoryView = toolBar
+        tfActive1.inputAccessoryView = toolBar
+        tfActive2.inputAccessoryView = toolBar
+        tfFault1.inputAccessoryView = toolBar
+        tfFault2.inputAccessoryView = toolBar
+        tfGamep1.inputAccessoryView = toolBar
+        tfGamep2.inputAccessoryView = toolBar
+        tfGamesp1.inputAccessoryView = toolBar
+        tfGamesp2.inputAccessoryView = toolBar
     }
     
     @objc func dismissPicker() {
@@ -88,12 +116,27 @@ class AddVC: UIViewController, UITextFieldDelegate {
         let wwp1 = Int(tfWWP1.text!)!
         let wwp2 = Int(tfWWP2.text!)!
         
+        let wpps1 = Int(tfWPPS1.text!)!
+        let wpps2 = Int(tfWPPS2.text!)!
+        let wwps1 = Int(tfWWPS1.text!)!
+        let wwps2 = Int(tfWWPS2.text!)!
+        let break1 = Int(tfBreak1.text!)!
+        let break2 = Int(tfBreak2.text!)!
+        let active1 = Int(tfActive1.text!)!
+        let active2 = Int(tfActive2.text!)!
+        let fault1 = Int(tfFault1.text!)!
+        let fault2 = Int(tfFault2.text!)!
+        let gamesp1 = Int(tfGamesp1.text!)!
+        let gamesp2 = Int(tfGamesp2.text!)!
+        let gamep1 = Int(tfGamep1.text!)!
+        let gamep2 = Int(tfGamep2.text!)!
+        
         //let dateFormatter = DateFormatter()
         //let d = dateFormatter.date(from: datePicker!.date)
         
 
         let vc = ViewController()
-        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2, date: datePicker!.date, winner: winner, ace1: a1, ace2: a2, df1: df1, df2: df2, wpp1: wpp1, wpp2: wpp2, wwp1: wwp1, wwp2: wwp2, wpps1: 1, wpps2: 2, wwps1: 3, wwps2: 4, break1: 5, break2: 6, active1: 7, active2: 8, fault1: 9, fault2: 10, gamesp1: 11, gamesp2: 12, gamep1: 13, gamep2: 14)
+        vc.saveMatch(name1: n1, name2: n2, rating1: r1, rating2: r2, date: datePicker!.date, winner: winner, ace1: a1, ace2: a2, df1: df1, df2: df2, wpp1: wpp1, wpp2: wpp2, wwp1: wwp1, wwp2: wwp2, wpps1: wpps1, wpps2: wpps2, wwps1: wwps1, wwps2: wwps2, break1: break1, break2: break2, active1: active1, active2: active2, fault1: fault1, fault2: fault2, gamesp1: gamesp1, gamesp2: gamesp2, gamep1: gamep1, gamep2:  gamep2)
         
         navigationController?.popViewController(animated: true)
         //self.dismiss(animated: true, completion: nil)

@@ -864,15 +864,29 @@
                         <outlet property="textFieldName2" destination="itQ-kY-4TU" id="DoR-FQ-NNC"/>
                         <outlet property="tfAce1" destination="Hbn-zr-Lal" id="V1P-Zl-WVa"/>
                         <outlet property="tfAce2" destination="b1Q-G4-kKj" id="8YM-RN-Vba"/>
+                        <outlet property="tfActive1" destination="khE-Sf-7MF" id="QsD-IU-QBw"/>
+                        <outlet property="tfActive2" destination="Ch9-nK-Q7V" id="hAN-8r-lIb"/>
+                        <outlet property="tfBreak1" destination="5fc-cp-1Bm" id="B3G-jh-aR7"/>
+                        <outlet property="tfBreak2" destination="DkM-m2-SOy" id="W90-QE-rBj"/>
                         <outlet property="tfDF1" destination="Fhj-Y8-cef" id="g35-KU-BME"/>
                         <outlet property="tfDF2" destination="50U-JJ-3UL" id="G07-Gd-u1l"/>
                         <outlet property="tfDate" destination="ULm-D4-d4p" id="s49-Qt-VKS"/>
+                        <outlet property="tfFault1" destination="MAp-Hk-V0B" id="ggi-p8-rw7"/>
+                        <outlet property="tfFault2" destination="HQQ-cA-h9M" id="cZX-N0-X44"/>
+                        <outlet property="tfGamep1" destination="p8l-lI-O8B" id="yhU-Q5-ICU"/>
+                        <outlet property="tfGamep2" destination="pP8-6B-oXO" id="Ohp-l9-ngr"/>
+                        <outlet property="tfGamesp1" destination="vAC-xA-jFX" id="95w-ny-x7P"/>
+                        <outlet property="tfGamesp2" destination="7S7-mY-h7Q" id="HnV-xt-4ix"/>
                         <outlet property="tfRating1" destination="9dK-fu-d4q" id="IB0-qX-nAu"/>
                         <outlet property="tfRating2" destination="WNn-Hm-YrE" id="dg1-Om-BT4"/>
                         <outlet property="tfWPP1" destination="3Ob-X5-R3x" id="y6c-DJ-ZEn"/>
                         <outlet property="tfWPP2" destination="EdB-EZ-AiD" id="1wK-ke-hUw"/>
+                        <outlet property="tfWPPS1" destination="UzM-bk-L71" id="sSf-v5-In4"/>
+                        <outlet property="tfWPPS2" destination="WkH-ag-wO8" id="Rfq-fA-AX9"/>
                         <outlet property="tfWWP1" destination="GmQ-IY-gdV" id="gwN-oC-eq6"/>
                         <outlet property="tfWWP2" destination="fOf-TK-yZF" id="xhN-0J-9Gl"/>
+                        <outlet property="tfWWPS1" destination="BQZ-BR-IIc" id="2Sh-G1-YgO"/>
+                        <outlet property="tfWWPS2" destination="1eI-Tp-oKu" id="nVl-jW-ext"/>
                         <outlet property="winnerSC" destination="x5N-Qs-ph7" id="tjg-ar-NIK"/>
                     </connections>
                 </viewController>

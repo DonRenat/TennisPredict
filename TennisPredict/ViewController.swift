@@ -23,6 +23,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
      
+        /*let delegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = delegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Match")
+        
+        do {
+            let fetchedResults = try managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
+            if let results = fetchedResults {
+              matches = results
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        tableView.reloadData()*/
+        fetchData()
+    }
+    
+    func fetchData(){
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = delegate.persistentContainer.viewContext
         
@@ -49,7 +68,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")!
         
         let person = matches[indexPath.row]
-        cell.textLabel!.text = (person.value(forKey: "name1") as! String) + " vs " + (person.value(forKey: "name2") as! String)//name of match
+        //let total = matches.count
+        //let person = matches[total - indexPath.row - 1]
+        //end test
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateString = dateFormatter.string(from: person.value(forKey: "date")! as! Date)
+        cell.textLabel!.text = dateString + " " + (person.value(forKey: "name1") as! String) + " vs " + (person.value(forKey: "name2") as! String)//name of match
         
         return cell
     }
@@ -128,8 +153,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //print(matches[indexPath.row].value(forKey: "name1")!)
         selectedMatch = matches[indexPath.row] as! Match
+        //let total = matches.count
+        //let selectedMatch = matches[total - indexPath.row - 1] as! Match
+        //end test
         performSegue(withIdentifier: "showDetailVC", sender: self)
     }
     
@@ -141,7 +168,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
+        if editingStyle == .delete {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let managedObjectContext = delegate.persistentContainer.viewContext
+            
+            managedObjectContext.delete(self.matches[indexPath.row])
+            
+            do {
+                try managedObjectContext.save()
+                self.matches.removeAll()
+                self.fetchData()
+            } catch {
+                
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
