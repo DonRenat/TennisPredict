@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Список матчей-->
+        <!--Матчи-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TennisPredict" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +56,8 @@
                         <color key="backgroundColor" name="Background"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Список матчей" id="ZEP-wc-KXs">
+                    <navigationItem key="navigationItem" title="Матчи" id="ZEP-wc-KXs">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="go5-zD-yea"/>
                         <barButtonItem key="rightBarButtonItem" title="Добавить" id="GCu-27-dfX">
                             <connections>
                                 <action selector="addMatch:" destination="BYZ-38-t0r" id="RIj-KN-430"/>
@@ -68,6 +69,7 @@
                         <outlet property="tableView" destination="DHJ-kY-NLj" id="btj-Ql-GRx"/>
                         <segue destination="04Q-6C-iJ0" kind="show" identifier="showDetailVC" id="Nlb-Th-NUW"/>
                         <segue destination="lJP-mH-hpZ" kind="show" identifier="showAddVC" id="PCH-xy-qbL"/>
+                        <segue destination="lli-d9-2cj" kind="show" identifier="showEditVC" id="a9h-IO-kFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1739,10 +1741,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
-        <!--DetailVC-->
+        <!--EditVC-->
         <scene sceneID="UpC-IN-l85">
             <objects>
-                <viewController id="lli-d9-2cj" customClass="DetailVC" customModule="TennisPredict" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lli-d9-2cj" customClass="EditVC" customModule="TennisPredict" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Se-eM-Ibb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2551,7 +2553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kaW-Z3-1Ol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="1238"/>
+            <point key="canvasLocation" x="1048" y="935"/>
         </scene>
     </scenes>
     <resources>

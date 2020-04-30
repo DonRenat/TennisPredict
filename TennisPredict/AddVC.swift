@@ -47,6 +47,8 @@ class AddVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Добавление"
+        
         addButton.layer.cornerRadius = 15
         addButton.layer.cornerCurve = .continuous
         
