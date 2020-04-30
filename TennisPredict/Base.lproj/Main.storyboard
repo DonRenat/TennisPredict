@@ -2533,6 +2533,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="HMI-qX-HGo"/>
                     <connections>
+                        <outlet property="editBTN" destination="RQ3-UP-W7C" id="LfU-nu-Hja"/>
                         <outlet property="textFieldName1" destination="IUP-Ib-yJO" id="1CH-8u-Vds"/>
                         <outlet property="textFieldName2" destination="WGi-6X-CQ7" id="ga6-2q-pGl"/>
                         <outlet property="tfAce1" destination="trB-aq-wmH" id="iCg-8i-Bo1"/>

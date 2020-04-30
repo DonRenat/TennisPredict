@@ -174,6 +174,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "showEditVC" {
             let editVC: EditVC = segue.destination as! EditVC
             editVC.selectedMatch = selectedMatch
+            //editVC.id = selectedMatch?.objectID
         }
     }
     

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SkyFloatingLabelTextField
 
-class EditVC: UIViewController {
+class EditVC: UIViewController, UITextFieldDelegate {
     
     var selectedMatch: Match?
     
@@ -42,11 +42,53 @@ class EditVC: UIViewController {
     @IBOutlet weak var tfGamesp2: SkyFloatingLabelTextField!
     @IBOutlet weak var tfGamep1: SkyFloatingLabelTextField!
     @IBOutlet weak var tfGamep2: SkyFloatingLabelTextField!
-
+    @IBOutlet weak var editBTN: UIButton!
+    
+    private var datePicker: UIDatePicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Изменение"
+        
+        editBTN.layer.cornerRadius = 15
+        editBTN.layer.cornerCurve = .continuous
+        
+        textFieldName1.delegate = self
+        textFieldName2.delegate = self
+        
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(EditVC.dateChanged(datePicker:)), for: .valueChanged)
+        
+        tfDate.inputView = datePicker
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(EditVC.dismissPicker))
+
+        tfDate.inputAccessoryView = toolBar
+        tfRating1.inputAccessoryView = toolBar
+        tfRating2.inputAccessoryView = toolBar
+        tfAce1.inputAccessoryView = toolBar
+        tfAce2.inputAccessoryView = toolBar
+        tfDF1.inputAccessoryView = toolBar
+        tfDF2.inputAccessoryView = toolBar
+        tfWPP1.inputAccessoryView = toolBar
+        tfWPP2.inputAccessoryView = toolBar
+        tfWWP1.inputAccessoryView = toolBar
+        tfWWP2.inputAccessoryView = toolBar
+        tfWPPS1.inputAccessoryView = toolBar
+        tfWPPS2.inputAccessoryView = toolBar
+        tfWWPS1.inputAccessoryView = toolBar
+        tfWWPS2.inputAccessoryView = toolBar
+        tfBreak1.inputAccessoryView = toolBar
+        tfBreak2.inputAccessoryView = toolBar
+        tfActive1.inputAccessoryView = toolBar
+        tfActive2.inputAccessoryView = toolBar
+        tfFault1.inputAccessoryView = toolBar
+        tfFault2.inputAccessoryView = toolBar
+        tfGamep1.inputAccessoryView = toolBar
+        tfGamep2.inputAccessoryView = toolBar
+        tfGamesp1.inputAccessoryView = toolBar
+        tfGamesp2.inputAccessoryView = toolBar
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -88,9 +130,78 @@ class EditVC: UIViewController {
 
     }
     
+    @objc func dismissPicker() {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        tfDate.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
+        }
     
     @IBAction func buttonEdit(_ sender: Any) {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = delegate.persistentContainer.viewContext
         
+        let predicate = NSPredicate(format: "SELF = %@", selectedMatch!.objectID)
+         
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Match")
+        fetchRequest.predicate = predicate
+         
+        do {
+            let fetchedEntities = try managedObjectContext.fetch(fetchRequest) as! [Match]
+            
+            var winner: String
+            if winnerSC.selectedSegmentIndex == 0 {winner = textFieldName1.text!} else {winner = textFieldName2.text!}
+            
+            fetchedEntities.first?.name1 = textFieldName1.text
+            fetchedEntities.first?.name2 = textFieldName2.text
+            fetchedEntities.first?.date = datePicker!.date
+            fetchedEntities.first?.winner = winner
+            
+            fetchedEntities.first?.rating1 = Int16(tfRating1.text!)!
+            fetchedEntities.first?.rating2 = Int16(tfRating2.text!)!
+            
+            fetchedEntities.first?.ace1 = Int16(tfAce1.text!)!
+            fetchedEntities.first?.ace2 = Int16(tfAce2.text!)!
+            fetchedEntities.first?.df1 = Int16(tfDF1.text!)!
+            fetchedEntities.first?.df2 = Int16(tfDF2.text!)!
+            fetchedEntities.first?.wpp1 = Int16(tfWPP1.text!)!
+            fetchedEntities.first?.wpp2 = Int16(tfWPP2.text!)!
+            fetchedEntities.first?.wwp1 = Int16(tfWWP1.text!)!
+            fetchedEntities.first?.wwp2 = Int16(tfWWP2.text!)!
+            
+            fetchedEntities.first?.wpps1 = Int16(tfWPPS1.text!)!
+            fetchedEntities.first?.wpps2 = Int16(tfWPPS2.text!)!
+            fetchedEntities.first?.wwps1 = Int16(tfWWPS1.text!)!
+            fetchedEntities.first?.wwps2 = Int16(tfWWPS2.text!)!
+            fetchedEntities.first?.break1 = Int16(tfBreak1.text!)!
+            fetchedEntities.first?.break2 = Int16(tfBreak2.text!)!
+            fetchedEntities.first?.active1 = Int16(tfActive1.text!)!
+            fetchedEntities.first?.active2 = Int16(tfActive2.text!)!
+            fetchedEntities.first?.fault1 = Int16(tfFault1.text!)!
+            fetchedEntities.first?.fault2 = Int16(tfFault2.text!)!
+            fetchedEntities.first?.gamesp1 = Int16(tfGamesp1.text!)!
+            fetchedEntities.first?.gamesp2 = Int16(tfGamesp2.text!)!
+            fetchedEntities.first?.gamep1 = Int16(tfGamep1.text!)!
+            fetchedEntities.first?.gamep2 = Int16(tfGamep2.text!)!
+            // ... Обновляем новые свойства с новыми значениями
+        } catch {
+            // что-то делаем в зависимости от ошибки
+        }
+         
+        do {
+            try managedObjectContext.save()
+        } catch {
+            // что-то делаем в зависимости от ошибки
+        }
+        navigationController?.popViewController(animated: true)
     }
     
 }
