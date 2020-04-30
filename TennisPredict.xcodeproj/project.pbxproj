@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1D1A03245B3F8900FE29E1 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D1A02245B3F8900FE29E1 /* EditVC.swift */; };
 		1B45C027244D2486009BA520 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B45C026244D2486009BA520 /* DetailVC.swift */; };
 		1B45C029244D36EA009BA520 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B45C028244D36EA009BA520 /* AddVC.swift */; };
 		1B8EB898244CE3EC00503D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EB897244CE3EC00503D30 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B1D1A02245B3F8900FE29E1 /* EditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		1B45C026244D2486009BA520 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		1B45C028244D36EA009BA520 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		1B8EB894244CE3EC00503D30 /* TennisPredict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisPredict.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				1B8EB8A0244CE3EC00503D30 /* TennisPredict.xcdatamodeld */,
 				1B45C026244D2486009BA520 /* DetailVC.swift */,
 				1B45C028244D36EA009BA520 /* AddVC.swift */,
+				1B1D1A02245B3F8900FE29E1 /* EditVC.swift */,
 			);
 			path = TennisPredict;
 			sourceTree = "<group>";
@@ -89,7 +92,6 @@
 				366AE65D960B7D0940B626E5 /* Pods-TennisPredict.debug.xcconfig */,
 				5E68EF72065A4EA9D39DB5F1 /* Pods-TennisPredict.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -222,6 +224,7 @@
 				1B8EB898244CE3EC00503D30 /* AppDelegate.swift in Sources */,
 				1B8EB8A2244CE3EC00503D30 /* TennisPredict.xcdatamodeld in Sources */,
 				1B8EB89A244CE3EC00503D30 /* SceneDelegate.swift in Sources */,
+				1B1D1A03245B3F8900FE29E1 /* EditVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

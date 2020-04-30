@@ -20,6 +20,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         searchBar.delegate = self
+        
+        setupLongPressGesture()
+    }
+    
+    func setupLongPressGesture() {
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGesture.minimumPressDuration = 1.0 // 1 second press
+        //longPressGesture.delegate = self
+        self.tableView.addGestureRecognizer(longPressGesture)
+    }
+
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began {
+            let touchPoint = gestureRecognizer.location(in: self.tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                print("long press done")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
