@@ -222,5 +222,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        //searchActive = false
+        self.searchBar.endEditing(true)
+    }
+    
 }
 
