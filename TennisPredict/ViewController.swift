@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let touchPoint = gestureRecognizer.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 print("long press done")
+                selectedMatch = matches[indexPath.row] as! Match
                 performSegue(withIdentifier: "showEditVC", sender: self)
             }
         }
@@ -169,6 +170,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "showDetailVC" {
             let detailVC: DetailVC = segue.destination as! DetailVC
             detailVC.selectedMatch = selectedMatch
+        }
+        if segue.identifier == "showEditVC" {
+            let editVC: EditVC = segue.destination as! EditVC
+            editVC.selectedMatch = selectedMatch
         }
     }
     
