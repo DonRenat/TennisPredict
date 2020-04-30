@@ -200,11 +200,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             var predicate: NSPredicate = NSPredicate()
             predicate = NSPredicate(format: "name1 contains[c] '\(searchText)'")
             
+            var predicate2: NSPredicate = NSPredicate()
+            predicate2 = NSPredicate(format: "name2 contains[c] '\(searchText)'")
+            
+            let predicateFinal:NSPredicate  = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate,predicate2] )
+            
             let delegate = UIApplication.shared.delegate as! AppDelegate
             let managedObjectContext = delegate.persistentContainer.viewContext
             
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Match")
-            fetchRequest.predicate = predicate
+            fetchRequest.predicate = predicateFinal
             
             do{
                 matches = try managedObjectContext.fetch(fetchRequest) as! [NSManagedObject]
