@@ -9,15 +9,17 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var matches = [NSManagedObject]()
     var selectedMatch: Match?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -191,6 +193,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         deleteButton.backgroundColor = UIColor.init(named: "Dark background")
         return [deleteButton]
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != ""{
+            var predicate: NSPredicate = NSPredicate()
+            predicate = NSPredicate(format: "name1 contains[c] '\(searchText)'")
+            
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let managedObjectContext = delegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Match")
+            fetchRequest.predicate = predicate
+            
+            do{
+                matches = try managedObjectContext.fetch(fetchRequest) as! [NSManagedObject]
+            } catch{
+                print("Search error")
+            }
+        } else {
+            fetchData()
+        }
+        tableView.reloadData()
     }
     
 }
