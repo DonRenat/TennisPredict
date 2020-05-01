@@ -97,6 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let dateString = dateFormatter.string(from: person.value(forKey: "date")! as! Date)
         cell.textLabel!.text = dateString + " " + (person.value(forKey: "name1") as! String) + " vs " + (person.value(forKey: "name2") as! String)//name of match
+        cell.detailTextLabel!.text = "Победитель " + (person.value(forKey: "winner") as! String)
         
         return cell
     }
