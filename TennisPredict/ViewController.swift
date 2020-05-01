@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     var matches = [NSManagedObject]()
     var selectedMatch: Match?
+    @IBOutlet weak var ongoingButton: UIButton!
+    @IBOutlet weak var liveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchBar.delegate = self
         
         setupLongPressGesture()
+        
+        ongoingButton.layer.cornerRadius = 15
+        ongoingButton.layer.cornerCurve = .continuous
+        
+        liveButton.layer.cornerRadius = 15
+        liveButton.layer.cornerCurve = .continuous
     }
     
     func setupLongPressGesture() {
@@ -252,6 +260,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         //searchActive = false
         self.searchBar.endEditing(true)
+    }
+    
+    @IBAction func ongoingClick(_ sender: Any) {
+        performSegue(withIdentifier: "showONGOING", sender: self)
     }
     
 }
