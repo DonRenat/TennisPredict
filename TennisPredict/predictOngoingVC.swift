@@ -113,6 +113,8 @@ class predictOngoingVC: UIViewController, UITextFieldDelegate {
 
     @IBAction func getPredict(_ sender: Any) {
         //(200 – рейтинг)^2(%) + процент побед(%) + история матчей(%)
+        if (name1TF.text == "" || name2TF.text == "" || rating1TF.text == "" || rating2TF.text == "") {predictLabel.text = "Проверьте введеные данные!"} else {
+        
         let n1: String = name1TF.text!
         let n2: String = name2TF.text!
         let r1 = Int(rating1TF.text!)!
@@ -144,6 +146,7 @@ class predictOngoingVC: UIViewController, UITextFieldDelegate {
         
         if h2h1.isNaN {predictLabel.text = "Пары игроков с такими именами не найдено!"} else if (r1>200 || r2>200) {predictLabel.text = "Недопустимые значения рейтинга!"} else {
         predictLabel.text! = "Прогноз" + "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "H2H %@: %.2f %@: %.2f", String(n1), h2h1, String(n2), h2h2) + "\n" + String(format: "Final %@: %.2f %@: %.2f", String(n1), final1/(final1+final2), String(n2), final2/(final1+final2))
+        }
         }
     }
 }
