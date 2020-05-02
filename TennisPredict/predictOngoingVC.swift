@@ -112,14 +112,12 @@ class predictOngoingVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func getPredict(_ sender: Any) {
-        //M=(200 – рейтинг) + процент побед + история матчей*100
+        //(200 – рейтинг)^2(%) + процент побед(%) + история матчей(%)
         let n1: String = name1TF.text!
         let n2: String = name2TF.text!
         let r1 = Int(rating1TF.text!)!
         let r2 = Int(rating2TF.text!)!
         
-        //var M1 = Float(pow((Float(200-r1)), 2.5))
-        //var M2 = Float(pow((Float(200-r2)), 2.5))
         var M1: Float
         var M2: Float
         
@@ -141,10 +139,11 @@ class predictOngoingVC: UIViewController, UITextFieldDelegate {
         let h2h1: Float = calcH2H(name1: n1, name2: n2)[0]
         let h2h2: Float = calcH2H(name1: n1, name2: n2)[1]
         
-        predictLabel.text! += "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "H2H %@: %.2f %@: %.2f", String(n1), h2h1, String(n2), h2h2)
+        let final1: Float = R1 + calcWinrate(name: n1) + h2h1
+        let final2: Float = R2 + calcWinrate(name: n2) + h2h2
         
-        //print(n1, " ", calcWinrate(name: n1))
-        //print(n2, " ", calcWinrate(name: n2))
-        print(calcH2H(name1: n1, name2: n2)[0])
+        if h2h1.isNaN {predictLabel.text = "Пары игроков с такими именами не найдено!"} else if (r1>200 || r2>200) {predictLabel.text = "Недопустимые значения рейтинга!"} else {
+        predictLabel.text! = "Прогноз" + "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "H2H %@: %.2f %@: %.2f", String(n1), h2h1, String(n2), h2h2) + "\n" + String(format: "Final %@: %.2f %@: %.2f", String(n1), final1/(final1+final2), String(n2), final2/(final1+final2))
+        }
     }
 }
