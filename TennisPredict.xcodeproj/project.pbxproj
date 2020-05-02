@@ -18,6 +18,7 @@
 		1B8EB8A2244CE3EC00503D30 /* TennisPredict.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EB8A0244CE3EC00503D30 /* TennisPredict.xcdatamodeld */; };
 		1B8EB8A4244CE3F100503D30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EB8A3244CE3F100503D30 /* Assets.xcassets */; };
 		1B8EB8A7244CE3F100503D30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EB8A5244CE3F100503D30 /* LaunchScreen.storyboard */; };
+		1BF232E9245DE64100AFEE5B /* predictLiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF232E8245DE64100AFEE5B /* predictLiveVC.swift */; };
 		68CF7DEE8DD30299A683F915 /* Pods_TennisPredict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4931D9509C52CF0D7DA28D5 /* Pods_TennisPredict.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		1B8EB8A3244CE3F100503D30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B8EB8A6244CE3F100503D30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B8EB8A8244CE3F100503D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BF232E8245DE64100AFEE5B /* predictLiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = predictLiveVC.swift; sourceTree = "<group>"; };
 		366AE65D960B7D0940B626E5 /* Pods-TennisPredict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisPredict.debug.xcconfig"; path = "Target Support Files/Pods-TennisPredict/Pods-TennisPredict.debug.xcconfig"; sourceTree = "<group>"; };
 		5E68EF72065A4EA9D39DB5F1 /* Pods-TennisPredict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisPredict.release.xcconfig"; path = "Target Support Files/Pods-TennisPredict/Pods-TennisPredict.release.xcconfig"; sourceTree = "<group>"; };
 		C4931D9509C52CF0D7DA28D5 /* Pods_TennisPredict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisPredict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				1B45C028244D36EA009BA520 /* AddVC.swift */,
 				1B1D1A02245B3F8900FE29E1 /* EditVC.swift */,
 				1B1D1A04245C763C00FE29E1 /* predictOngoingVC.swift */,
+				1BF232E8245DE64100AFEE5B /* predictLiveVC.swift */,
 			);
 			path = TennisPredict;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				1B45C029244D36EA009BA520 /* AddVC.swift in Sources */,
 				1B45C027244D2486009BA520 /* DetailVC.swift in Sources */,
 				1B8EB89C244CE3EC00503D30 /* ViewController.swift in Sources */,
+				1BF232E9245DE64100AFEE5B /* predictLiveVC.swift in Sources */,
 				1B8EB898244CE3EC00503D30 /* AppDelegate.swift in Sources */,
 				1B8EB8A2244CE3EC00503D30 /* TennisPredict.xcdatamodeld in Sources */,
 				1B8EB89A244CE3EC00503D30 /* SceneDelegate.swift in Sources */,

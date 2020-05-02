@@ -266,5 +266,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         performSegue(withIdentifier: "showONGOING", sender: self)
     }
     
+    
+    @IBAction func liveClick(_ sender: Any) {
+        performSegue(withIdentifier: "showLIVE", sender: self)
+    }
+    
 }
 

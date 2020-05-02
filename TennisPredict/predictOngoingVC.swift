@@ -21,7 +21,7 @@ class predictOngoingVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = " Предстоящий"
+        title = "Предстоящий"
         
         predictButton.layer.cornerRadius = 15
         predictButton.layer.cornerCurve = .continuous
