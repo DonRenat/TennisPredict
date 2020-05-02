@@ -44,6 +44,8 @@ class EditVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tfGamep2: SkyFloatingLabelTextField!
     @IBOutlet weak var editBTN: UIButton!
     
+    var activeTextField : SkyFloatingLabelTextField? = nil
+    
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
@@ -51,11 +53,22 @@ class EditVC: UIViewController, UITextFieldDelegate {
         
         title = "Изменение"
         
+        NotificationCenter.default.addObserver(self, selector: #selector(predictLiveVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(predictLiveVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         editBTN.layer.cornerRadius = 15
         editBTN.layer.cornerCurve = .continuous
         
         textFieldName1.delegate = self
         textFieldName2.delegate = self
+        
+        tfDate.delegate = self
+        tfGamep1.delegate = self
+        tfGamep2.delegate = self
+        tfGamesp1.delegate = self
+        tfGamesp2.delegate = self
+        tfFault1.delegate = self
+        tfFault2.delegate = self
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
@@ -128,6 +141,39 @@ class EditVC: UIViewController, UITextFieldDelegate {
             winnerSC.selectedSegmentIndex = 1
         }
 
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+
+      guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+
+        // if keyboard size is not available for some reason, dont do anything
+        return
+      }
+
+      var shouldMoveViewUp = false
+
+      // if active text field is not nil
+      if let activeTextField = activeTextField {
+
+        let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
+        
+        let topOfKeyboard = self.view.frame.height - keyboardSize.height
+
+        // if the bottom of Textfield is below the top of keyboard, move up
+        if bottomOfTextField > topOfKeyboard {
+          shouldMoveViewUp = true
+        }
+      }
+
+      if(shouldMoveViewUp) {
+        self.view.frame.origin.y = 0 - keyboardSize.height
+      }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+      // move back the root view origin to zero
+      self.view.frame.origin.y = 0
     }
     
     @objc func dismissPicker() {
@@ -204,4 +250,17 @@ class EditVC: UIViewController, UITextFieldDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+}
+
+extension EditVC {
+  // when user select a textfield, this method will be called
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    // set the activeTextField to the selected textfield
+    self.activeTextField = textField as! SkyFloatingLabelTextField
+  }
+    
+  // when user click 'done' or dismiss the keyboard
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    self.activeTextField = nil
+  }
 }
