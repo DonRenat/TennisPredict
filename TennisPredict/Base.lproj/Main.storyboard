@@ -3515,6 +3515,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Прогноз" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYd-zO-5Q9">
+                                <rect key="frame" x="20" y="646" width="374" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <viewLayoutGuide key="safeArea" id="mTa-SD-1wW"/>
@@ -3522,6 +3529,7 @@
                     <navigationItem key="navigationItem" id="Kpo-pP-OEq"/>
                     <connections>
                         <outlet property="addButton" destination="0JM-gb-UmB" id="sxc-wk-GH3"/>
+                        <outlet property="predictLabel" destination="LYd-zO-5Q9" id="sM9-Pf-Ijw"/>
                         <outlet property="textFieldName1" destination="wNK-xt-OOV" id="kgI-zV-bne"/>
                         <outlet property="textFieldName2" destination="BXw-S5-PQj" id="kfK-hj-VTw"/>
                         <outlet property="tfAce1" destination="0sd-2Z-wNr" id="3u7-sA-2yB"/>
@@ -3552,7 +3560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P29-Yb-GMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="-379"/>
+            <point key="canvasLocation" x="1786.9565217391305" y="-379.01785714285711"/>
         </scene>
     </scenes>
     <resources>
