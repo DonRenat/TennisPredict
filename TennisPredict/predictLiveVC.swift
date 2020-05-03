@@ -351,6 +351,40 @@ class predictLiveVC: UIViewController, UITextFieldDelegate {
             let r1 = Int(tfRating1.text!)!
             let r2 = Int(tfRating2.text!)!
             
+            let a1 = Float(tfAce1.text!)!
+            let a2 = Float(tfAce2.text!)!
+            let df1 = Float(tfDF1.text!)!
+            let df2 = Float(tfDF2.text!)!
+            let wpp1 = Float(tfWPP1.text!)!
+            let wpp2 = Float(tfWPP2.text!)!
+            let wwp1 = Float(tfWWP1.text!)!
+            let wwp2 = Float(tfWWP2.text!)!
+            let wpps1 = Float(tfWPPS1.text!)!
+            let wpps2 = Float(tfWPPS2.text!)!
+            let wwps1 = Float(tfWWPS1.text!)!
+            let wwps2 = Float(tfWWPS2.text!)!
+            let break1 = Float(tfBreak1.text!)!
+            let break2 = Float(tfBreak2.text!)!
+            let active1 = Float(tfActive1.text!)!
+            let active2 = Float(tfActive2.text!)!
+            let fault1 = Float(tfFault1.text!)!
+            let fault2 = Float(tfFault2.text!)!
+            let gamesp1 = Float(tfGamesp1.text!)!
+            let gamesp2 = Float(tfGamesp2.text!)!
+            let gamep1 = Float(tfGamep1.text!)!
+            let gamep2 = Float(tfGamep2.text!)!
+            
+            let fullOther1 = wpp1 + wwp1 + wpps1 + wwps1 + break1 + active1 - fault1 + gamesp1 + gamep1
+            let fullOther2 = wpp2 + wwp2 + wpps2 + wwps2 + break2 + active2 - fault2 + gamesp2 + gamep2
+            let fo1 = Float(fullOther1/(fullOther1+fullOther2))
+            let fo2 = Float(fullOther2/(fullOther1+fullOther2))
+            let ace1 = Float(a1/(a1+a2))
+            let ace2 = Float(a2/(a1+a2))
+            let doublef1 = Float(df2/(df1+df2))
+            let doublef2 = Float(df1/(df1+df2))
+            print(String(format: "fo %.2f %.2f ace %.2f %.2f df %.2f %.2f", fo1, fo2, ace1, ace2, doublef1, doublef2))
+            
+            
             var M1: Float
             var M2: Float
             
@@ -372,11 +406,11 @@ class predictLiveVC: UIViewController, UITextFieldDelegate {
             let h2h1: Float = calcH2H(name1: n1, name2: n2)[0]
             let h2h2: Float = calcH2H(name1: n1, name2: n2)[1]
             
-            let final1: Float = R1 + calcWinrate(name: n1) + h2h1
-            let final2: Float = R2 + calcWinrate(name: n2) + h2h2
+            let final1: Float = R1 + calcWinrate(name: n1) + h2h1 + fo1 + ace1 + doublef1
+            let final2: Float = R2 + calcWinrate(name: n2) + h2h2 + fo2 + ace2 + doublef2
                 
-            let final1NON2H: Float = R1 + calcWinrate(name: n1)
-            let final2NOH2H: Float = R2 + calcWinrate(name: n2)
+            let final1NON2H: Float = R1 + calcWinrate(name: n1) + fo1 + ace1 + doublef1
+            let final2NOH2H: Float = R2 + calcWinrate(name: n2) + fo2 + ace2 + doublef2
             
             if (calcWinrate(name: n1).isNaN || calcWinrate(name: n2).isNaN) {predictLabel.text! = "Статистика для одного из игроков отсутствует!"} else if h2h1.isNaN {predictLabel.text! = "Прогноз" + "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "Final %@: %.2f %@: %.2f", String(n1), final1NON2H/(final1NON2H+final2NOH2H), String(n2), final2NOH2H/(final1NON2H+final2NOH2H))} else {
             predictLabel.text! = "Прогноз" + "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "H2H %@: %.2f %@: %.2f", String(n1), h2h1, String(n2), h2h2) + "\n" + String(format: "Final %@: %.2f %@: %.2f", String(n1), final1/(final1+final2), String(n2), final2/(final1+final2))
