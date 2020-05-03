@@ -374,8 +374,11 @@ class predictLiveVC: UIViewController, UITextFieldDelegate {
             
             let final1: Float = R1 + calcWinrate(name: n1) + h2h1
             let final2: Float = R2 + calcWinrate(name: n2) + h2h2
+                
+            let final1NON2H: Float = R1 + calcWinrate(name: n1)
+            let final2NOH2H: Float = R2 + calcWinrate(name: n2)
             
-            if h2h1.isNaN {predictLabel.text = "Пары игроков с такими именами не найдено!"} else if (r1>200 || r2>200) {predictLabel.text = "Недопустимые значения рейтинга!"} else {
+            if (calcWinrate(name: n1).isNaN || calcWinrate(name: n2).isNaN) {predictLabel.text! = "Статистика для одного из игроков отсутствует!"} else if h2h1.isNaN {predictLabel.text! = "Прогноз" + "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "Final %@: %.2f %@: %.2f", String(n1), final1NON2H/(final1NON2H+final2NOH2H), String(n2), final2NOH2H/(final1NON2H+final2NOH2H))} else {
             predictLabel.text! = "Прогноз" + "\n" + String(format: "Rating %@: %.2f %@: %.2f", String(n1), R1, String(n2), R2) + "\n" + String(format: "Winrate %@: %.2f %@: %.2f", String(n1), calcWinrate(name: n1), String(n2), calcWinrate(name: n2)) + "\n" + String(format: "H2H %@: %.2f %@: %.2f", String(n1), h2h1, String(n2), h2h2) + "\n" + String(format: "Final %@: %.2f %@: %.2f", String(n1), final1/(final1+final2), String(n2), final2/(final1+final2))
             }
         }
