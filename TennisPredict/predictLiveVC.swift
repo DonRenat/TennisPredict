@@ -309,6 +309,41 @@ class predictLiveVC: UIViewController, UITextFieldDelegate {
         //do {try managedObjectContext.save()} catch {}
     }
     
+    func calcH2HChance(name1: String, name2: String)->[Float]{
+        var chance1: Float = 0
+        var chance2: Float = 0
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = delegate.persistentContainer.viewContext
+        
+        let predicate1 = NSPredicate(format: "name1 == %@", name1)
+        let predicate2 = NSPredicate(format: "name2 == %@", name2)
+        let predicate12:NSPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2] )
+        
+        let predicate3 = NSPredicate(format: "name1 == %@", name2)
+        let predicate4 = NSPredicate(format: "name2 == %@", name1)
+        let predicate34:NSPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate3, predicate4] )
+        
+        let predicateFinal:NSPredicate  = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate12, predicate34] )
+
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Match")
+        fetchRequest.predicate = predicateFinal
+
+        do {
+            let fetchedEntities = try managedObjectContext.fetch(fetchRequest) as! [Match]
+            
+            for entity in fetchedEntities {
+                if entity.winner == name1 {chance1+=100} else {chance2+=100}
+                var add1: Float = Float(entity.ace1 - entity.df1 + entity.wpp1 + entity.wwp1 + entity.wpps1 + entity.wwps1 + entity.break1 + entity.active1 - entity.fault1 + entity.gamesp1 + entity.gamep1)
+                var add2: Float = Float(entity.ace2 - entity.df2 + entity.wpp2 + entity.wwp2 + entity.wpps2 + entity.wwps2 + entity.break2 + entity.active2 - entity.fault2 + entity.gamesp2 + entity.gamep2)
+                chance1 += add1
+                chance2 += add2
+            }
+        } catch {}
+
+        return [chance1/(chance1+chance2), chance2/(chance1+chance2)]
+    }
+    
     @IBAction func getPredict(_ sender: Any) {
         textFieldName(textFieldName1)
         textFieldName(textFieldName2)
@@ -384,18 +419,20 @@ class predictLiveVC: UIViewController, UITextFieldDelegate {
             let doublef2 = Float(df1/(df1+df2))
             print(String(format: "fo %.2f %.2f ace %.2f %.2f df %.2f %.2f", fo1, fo2, ace1, ace2, doublef1, doublef2))
             
+            let statsh2h1: Float = calcH2HChance(name1: n1, name2: n2)[0]
+            let statsh2h2: Float = calcH2HChance(name1: n1, name2: n2)[1]
             
             var M1: Float
             var M2: Float
             
             if case 1...3 = r1 {
-                M1 = Float(pow((Float(200-r1)), 2.1))
+                M1 = Float(pow((Float(200-r1)), 2.2))
             } else {
                 M1 = Float(pow((Float(200-r1)), 2.0))
             }
             
             if case 1...3 = r2 {
-                M2 = Float(pow((Float(200-r2)), 2.1))
+                M2 = Float(pow((Float(200-r2)), 2.2))
             } else {
                 M2 = Float(pow((Float(200-r2)), 2.0))
             }
@@ -406,8 +443,8 @@ class predictLiveVC: UIViewController, UITextFieldDelegate {
             let h2h1: Float = calcH2H(name1: n1, name2: n2)[0]
             let h2h2: Float = calcH2H(name1: n1, name2: n2)[1]
             
-            let final1: Float = R1 + calcWinrate(name: n1) + h2h1 + fo1 + ace1 + doublef1
-            let final2: Float = R2 + calcWinrate(name: n2) + h2h2 + fo2 + ace2 + doublef2
+            let final1: Float = R1 + calcWinrate(name: n1) + h2h1 + fo1 + ace1 + doublef1 + statsh2h1
+            let final2: Float = R2 + calcWinrate(name: n2) + h2h2 + fo2 + ace2 + doublef2 + statsh2h2
                 
             let final1NON2H: Float = R1 + calcWinrate(name: n1) + fo1 + ace1 + doublef1
             let final2NOH2H: Float = R2 + calcWinrate(name: n2) + fo2 + ace2 + doublef2
